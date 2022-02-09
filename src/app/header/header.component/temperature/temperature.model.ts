@@ -7,10 +7,7 @@ export class TemperatureModel{
   // @ts-ignore
   public convertedValue : number;
 
-  constructor(inputTempInd : string, inputValue : number, convertedValue : number) {
-    this.inputTempInd = inputTempInd;
-    this.inputValue = inputValue;
-    this.convertedValue = convertedValue;
+  constructor() {
   }
 
 
