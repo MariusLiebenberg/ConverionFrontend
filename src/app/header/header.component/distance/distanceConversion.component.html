@@ -1,0 +1,9 @@
+<div class="d_border">
+  <h3 >Distance Conversion</h3>
+  <div>
+    <!--    If the metric input is changed the value of the imperial input will be retrieved from the var imperialConversion and vice versa-->
+    <input  #imperialValueD (keyup)="convertDistance('M', imperialValueD.value)" value={{imperialConversionD}}><label class="d_label">Mile</label>
+    <label class="d_conversionArrow"> <<<>>></label>
+    <input class="" #metricValueD (keyup)="convertDistance('K', metricValueD.value)" value={{metricConversionD}}><label class="d_label">KM</label>
+  </div>
+</div>

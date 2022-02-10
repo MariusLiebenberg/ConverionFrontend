@@ -1,7 +1,9 @@
+<!--html for temperature-->
 <div class="d_border">
   <h3 >Temperature Conversion</h3>
   <div>
-<!--    If the metric input is changed the value of the imperial input will be retrieved from the var imperialConversion and vice versa-->
+<!--    If the metric input is changed the value of the imperial input will be retrieved from the var imperialConversion and vice versa -->
+<!--    when a key is pressed the opposing value is calculated-->
     <input  #imperialValue (keyup)="convertTemperature('F', imperialValue.value)" value={{imperialConversion}}><label class="d_label">℉</label>
     <label class="d_conversionArrow"> <<<>>></label>
     <input class="" #metricValue (keyup)="convertTemperature('C', metricValue.value)" value={{metricConversion}}><label class="d_label">℃</label>

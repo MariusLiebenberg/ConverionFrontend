@@ -1,5 +1,5 @@
 import {Component, OnInit} from "@angular/core";
-import {TemperatureModel} from "./temperature.model";
+import {ConverionModel} from "../converion.model";
 import {HttpClient} from "@angular/common/http";
 @Component(
   {
@@ -12,40 +12,35 @@ export class TemperatureConversionComponent implements OnInit  {
   imperialConversion :number = '';
   // @ts-ignore
   metricConversion : number = '';
-  temp: TemperatureModel = new TemperatureModel();
+  temp: ConverionModel = new ConverionModel();
   constructor(private http:HttpClient) {
   }
   //@ts-ignore
   convertTemperature(inputInd, inputValue) {
     // @ts-ignore
-    let temperature:TemperatureModel = new TemperatureModel();
+    let temperature:ConverionModel = new ConverionModel();
     temperature.inputTempInd = inputInd;
     // this.metricConversion = inputValue;
     temperature.inputValue = inputValue;
-    console.warn(temperature.inputValue)
-    this.http.post<TemperatureModel>('http://localhost:8080/conversionApp/convertToCelcius', temperature).subscribe(data => {console.log("my data", data)
+    console.warn(temperature.inputValue)//displays the input value in the console. Handy for debugging
+
+    //call the api call.
+    //Place the return type after post so that the data can get the converted value
+    this.http.post<ConverionModel>('http://localhost:8080/conversionApp/convertUnit', temperature).subscribe(data => {console.log("my data", data)
                            if(data){
+                             //if the incoming value is from the fahrenheit input then populate the celsius text
                              if(data.inputTempInd === 'F'){
                                // @ts-ignore
                                this.metricConversion = data.convertedValue.toFixed(2);
                              }
+                             //if the incoming value is from the celsius input then populate the Fahrenheit text
                              if(data.inputTempInd === 'C'){
                                // @ts-ignore
                                this.imperialConversion = data.convertedValue.toFixed(2);
                              }
-                              // this.temp.inputTempInd = data.inputTempInd;
-                              // this.temp.inputValue = data.inputValue;
-                              // this.temp.convertedValue = data.convertedValue;
+
                            }
      });
-    // window.location.reload();
-    // if(this.temp.inputTempInd =="F"){
-    //   this.metricConversion = this.temp.convertedValue;
-    // }
-    // if(this.temp.inputTempInd =="C"){
-    //   this.imperialConversion = this.temp.convertedValue;
-    // }
-
 
   }
 

@@ -25,3 +25,11 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+##Local deploy steps
+Open the application in Intellij
+In the terminal run:
+	npm install -g @angular/cli
+	npm install --save bootstrap@3
+Click the green arrow in the top right corner to start the frontend
+Make sure to also start the backend (conversion)
