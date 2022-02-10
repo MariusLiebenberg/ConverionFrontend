@@ -26,7 +26,7 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
-##Local deploy steps
+## Local deploy steps
 Open the application in Intellij
 In the terminal run:
 	npm install -g @angular/cli
