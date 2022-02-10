@@ -26,10 +26,12 @@ export class TemperatureConversionComponent implements OnInit  {
     this.http.post<TemperatureModel>('http://localhost:8080/conversionApp/convertToCelcius', temperature).subscribe(data => {console.log("my data", data)
                            if(data){
                              if(data.inputTempInd === 'F'){
-                               this.metricConversion = data.convertedValue;
+                               // @ts-ignore
+                               this.metricConversion = data.convertedValue.toFixed(2);
                              }
                              if(data.inputTempInd === 'C'){
-                               this.imperialConversion = data.convertedValue;
+                               // @ts-ignore
+                               this.imperialConversion = data.convertedValue.toFixed(2);
                              }
                               // this.temp.inputTempInd = data.inputTempInd;
                               // this.temp.inputValue = data.inputValue;

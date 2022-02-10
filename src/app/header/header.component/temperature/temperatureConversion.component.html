@@ -1,2 +1,11 @@
-<input #imperialValue (keyup.enter)="convertTemperature('F', imperialValue.value)" value={{imperialConversion}}>
-<input #metricValue (keyup.enter)="convertTemperature('C', metricValue.value)" value={{metricConversion}}>
+<div class="d_border">
+  <h3 >Temperature Conversion</h3>
+  <div>
+<!--    If the metric input is changed the value of the imperial input will be retrieved from the var imperialConversion and vice versa-->
+    <input  #imperialValue (keyup)="convertTemperature('F', imperialValue.value)" value={{imperialConversion}}><label class="d_label">℉</label>
+    <label class="d_conversionArrow"> <<<>>></label>
+    <input class="" #metricValue (keyup)="convertTemperature('C', metricValue.value)" value={{metricConversion}}><label class="d_label">℃</label>
+  </div>
+</div>
+
+
